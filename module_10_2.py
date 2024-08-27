@@ -18,7 +18,11 @@ class Knight(Thread):
         days = 0
         print(f'{self.name}, на нас напали!')
         while self.enemies > 0:
-            self.enemies -= self.power
+            self.enemies = self.enemies - self.power if self.enemies - self.power > 0 else 0    # или код в комментарии ниже
+            # if self.enemies > self.power:
+            #     self.enemies -= self.power
+            # else:
+            #     self.enemies = 0
             sleep(1)
             days += 1
             print(f'{self.name} сражается {days} день(дня), осталось {self.enemies} воинов.')
